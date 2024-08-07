@@ -1,0 +1,402 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+select {
+  width: 20rem;
+  background-color: #DCCC09;
+  border: yellow 1px solid;
+  margin-right: 620px;
+}
+
+select>option {
+  background-color: #FAE80B;
+}
+
+.button:hover {
+  background-color: #ebeae6;
+  color: darkblue;
+}
+
+.video_frame {
+  margin-left: 170px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #DCCC09;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+.ball {
+  background: radial-gradient(farthest-corner at 60px 45px, #aaa 0%, rgb(228, 187, 8) 50%);
+  border-radius: 50%;
+  height: 160px;
+  width: 160px;
+}
+
+.ball-shadow {
+  background: radial-gradient(50% 50%, #000 0%, #fff 100%);
+  height: 50px;
+  width: 200px;
+}
+
+.bouncy-castle {
+  height: 100%;
+  left: 50%;
+  position: absolute;
+}
+
+.bouncy-castle .ball-shadow {
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: grow;
+  -webkit-animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-name: grow;
+  animation-iteration-count: infinite;
+  bottom: 0;
+  position: absolute;
+  margin-left: -100px;
+}
+
+.bouncy-castle .ball {
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: bounce;
+  -webkit-animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  position: absolute;
+}
+
+@-webkit-keyframes grow {
+  from {
+    bottom: 0;
+    margin-left: -100px;
+    height: 50px;
+    opacity: 1;
+    width: 200px;
+  }
+
+  to {
+    bottom: -15px;
+    margin-left: -150px;
+    height: 80px;
+    opacity: 0.4;
+    width: 300px;
+  }
+}
+
+@keyframes grow {
+  from {
+    bottom: 0;
+    margin-left: -100px;
+    height: 50px;
+    width: 200px;
+  }
+
+  to {
+    bottom: 20px;
+    margin-left: 0;
+    height: 10px;
+    width: 15px;
+  }
+}
+
+@-webkit-keyframes bounce {
+  from {
+    bottom: 20px;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+@keyframes bounce {
+  from {
+    bottom: 20px;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+/* Bounce Two */
+
+
+
+.ball2 {
+  background: radial-gradient(farthest-corner at 60px 45px, #aaa 0%, rgb(228, 187, 8) 50%);
+  border-radius: 50%;
+  height: 140px;
+  width: 140px;
+}
+
+.ball-shadow2 {
+  background: radial-gradient(50% 50%, #000 0%, #fff 100%);
+  height: 50px;
+  width: 200px;
+}
+
+.bouncy-castle2 {
+  height: 100%;
+  left: 50%;
+  position: absolute;
+}
+
+.bouncy-castle2 .ball-shadow2 {
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: grow;
+  -webkit-animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-name: grow;
+  animation-iteration-count: infinite;
+  bottom: 0;
+  position: absolute;
+  margin-left: -100px;
+}
+
+.bouncy-castle2 .ball2 {
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-name: bounce;
+  -webkit-animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1.5s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  position: absolute;
+}
+
+@-webkit-keyframes grow {
+  from {
+    bottom: 0;
+    margin-left: -100px;
+    height: 50px;
+    opacity: 1;
+    width: 200px;
+  }
+
+  to {
+    bottom: -15px;
+    margin-left: -150px;
+    height: 80px;
+    opacity: 0.4;
+    width: 300px;
+  }
+}
+
+@keyframes grow {
+  from {
+    bottom: 0;
+    margin-left: -100px;
+    height: 50px;
+    width: 200px;
+  }
+
+  to {
+    bottom: 20px;
+    margin-left: 0;
+    height: 10px;
+    width: 15px;
+  }
+}
+
+@-webkit-keyframes bounce {
+  from {
+    bottom: 15px;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+@keyframes bounce {
+  from {
+    bottom: 15px;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+
+/* Bounce Three */
+
+
+
+.ball3 {
+  background: radial-gradient(farthest-corner at 60px 45px, #aaa 0%, rgb(228, 187, 8) 50%);
+  border-radius: 50%;
+  height: 110px;
+  width: 110px;
+}
+
+.ball-shadow3 {
+  background: radial-gradient(50% 50%, #000 0%, #fff 100%);
+  height: 50px;
+  width: 200px;
+}
+
+.bouncy-castle3 {
+  height: 100%;
+  left: 50%;
+  position: absolute;
+}
+
+.bouncy-castle3 .ball-shadow3 {
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: grow;
+  -webkit-animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  animation-name: grow;
+  animation-iteration-count: infinite;
+  bottom: 0;
+  position: absolute;
+  margin-left: -100px;
+}
+
+.bouncy-castle3 .ball3 {
+  -webkit-animation-direction: alternate;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-name: bounce;
+  -webkit-animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 2s;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  margin-left: -100px;
+  position: absolute;
+}
+
+@-webkit-keyframes grow {
+  from {
+    bottom: 0;
+    margin-left: -100px;
+    height: 50px;
+    opacity: 1;
+    width: 200px;
+  }
+
+  to {
+    bottom: -15px;
+    margin-left: -150px;
+    height: 80px;
+    opacity: 0.4;
+    width: 300px;
+  }
+}
+
+@keyframes grow {
+  from {
+    bottom: 0;
+    margin-left: -100px;
+    height: 50px;
+    width: 200px;
+  }
+
+  to {
+    bottom: 20px;
+    margin-left: 0;
+    height: 10px;
+    width: 15px;
+  }
+}
+
+@-webkit-keyframes bounce {
+  from {
+    bottom: 15px;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
+
+@keyframes bounce {
+  from {
+    bottom: 15px;
+  }
+
+  to {
+    bottom: 100%;
+  }
+}
