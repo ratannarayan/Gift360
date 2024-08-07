@@ -89,7 +89,7 @@ export default function Header(props) {
               type="link"
               href="/discuss-project"
             >
-              Discuss Gifts
+              Text to Video
             </Button>
           </li>
           <li>
@@ -154,7 +154,7 @@ export default function Header(props) {
                 type="link"
                 href="/discuss-project"
               >
-                Discuss Gifts
+                Text to Video
               </Button>
             </li>
           </ul>

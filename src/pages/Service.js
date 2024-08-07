@@ -9,7 +9,7 @@ export default function Service({ data }) {
   return (
     <div className="bg-gray-50">
       <div className="container mx-auto pt-20 pb-28">
-        <Fade bottoms>
+        <Fade bottom>
           <h1 className="text-5xl text-theme-blue text-center font-bold">Suggestions</h1>
 
           <p className="font-light text-lg text-gray-400 text-center mb-12">
