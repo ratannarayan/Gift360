@@ -14,7 +14,7 @@ export default function VideoToText() {
   const [fileUserPath, setFileUserPath] = useState("");
   const [fileUserName, setFileUserName] = useState("");
   const [text, setText] = useState();
-  const [errorMessage, setErrorMesage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     if (!authToken) {
@@ -43,71 +43,34 @@ export default function VideoToText() {
   }, [file]);
 
   const handleInput = (event) => {
-    setFileUserName(event.target.files[0].name);
-    console.log("file user name", fileUserName);
-    setFile(event.target.files[0]); // Store the file object
+    console.log(event.target.files);
+    setFile(event.target.files[0]);
   };
   function escapeBackslashes(filePath) {
     return filePath.replace(/\\/g, "\\\\");
   }
 
   const handleSubmit = () => {
-    console.log("file Paht", fileUserPath);
-    console.log("file Name", fileUserName);
-    setErrorMesage("");
-    if (file && fileUserPath) {
-      fetch("http://localhost:5000/transcribe-video", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          filePath: fileUserPath,
-          fileName: fileUserName,
-        }),
+    const formData = new FormData();
+    formData.append("videoFile", file);
+    fetch("http://34.204.18.90:5000/transcribe-video", {
+      method: "POST",
+      body: formData, // Use FormData object
+      // Note: Do not set Content-Type header manually with FormData
+    })
+      .then((response) => {
+        console.log("response", response);
+        return response.json();
       })
-        .then((response) => response.json())
-        .then((data) => {
-           
-          if (data["success"] == false) {
-            setErrorMesage("PARSE_TRANSCRIPTION_FAILED");
-
-            setTimeout(() => {
-              handleSubmit();
-            }, 2000);
-          } else {
-            setText(data["transcriptionText"]["txt"]);
-          }
-        })
-        .catch((error) => console.error("Error:", error));
-    } else {
-      alert("please send your file or your file path");
-    }
+      .then((data) => {
+        setText(data["transcriptionText"]["txt"]);
+        console.log(data, "is data");
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
   };
-  function removeTrailingAndLeadingDoubleQuote(str) {
-    if (str.startsWith('"') && str.endsWith('"')) {
-      return str.slice(1, -1);
-    }
-    return str;
-  }
-  function ifItHaveAFileName(str) {
-    if (str.endsWith(".mp4")) {
-      let lastSlashIndex = str.lastIndexOf("\\");
-      return str.substring(0, lastSlashIndex);
-    } else {
-      return str;
-    }
-  }
-
-  const handleInputUserFilePath = (event) => {
-    const trailingPath = removeTrailingAndLeadingDoubleQuote(
-      event.target.value
-    );
-    const escapeCharaterPath = escapeBackslashes(trailingPath);
-    const checkHaveAFileName = ifItHaveAFileName(escapeCharaterPath);
-    setFileUserPath(checkHaveAFileName);
-  };
-
+  
   return loading ? (
     <div className="loader"></div>
   ) : (
@@ -128,18 +91,6 @@ export default function VideoToText() {
                 onChange={handleInput}
               />
               <label htmlFor="projectIdea">Upload your file</label>
-            </div>
-
-            <div className="input-container">
-              <input
-                id="projectIdea"
-                name="projectIdea"
-                type="text"
-                onChange={handleInputUserFilePath}
-                placeholder="Path of the video"
-                className=""
-              />
-              <div>Can you please share us the path of the video</div>
             </div>
 
             <Button
