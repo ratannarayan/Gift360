@@ -7,7 +7,7 @@ import Fade from 'react-reveal/Fade';
 export default function Advantage({ data }) {
   return (
     <div className="bg-gray-50 py-20 mb-24 sm:mb-18 xl:mb-16">
-      <div className="container mx-auto">
+        <div className="flex flex-col items-center">
         <Fade bottom>
           <h1 className="text-5xl text-theme-blue text-center font-bold">Why Choose Us</h1>
 
