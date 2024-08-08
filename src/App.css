@@ -400,3 +400,12 @@ select>option {
     bottom: 100%;
   }
 }
+
+.footer_social{
+  margin-right: 100px;
+}
+
+.class_office{
+  margin-left: 200px;
+  margin-right: 200px;
+}
