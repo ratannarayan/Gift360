@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchToken } from "./api";
 import "./style.css";
+import { createFinalTranscription } from "../api/videototext";
 
 export default function VideoToText() {
   const [loading, setLoading] = useState(true);
@@ -53,24 +54,26 @@ export default function VideoToText() {
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append("videoFile", file);
-    fetch("http://34.204.18.90:5000/transcribe-video", {
-      method: "POST",
-      body: formData, // Use FormData object
-      // Note: Do not set Content-Type header manually with FormData
-    })
-      .then((response) => {
-        console.log("response", response);
-        return response.json();
-      })
-      .then((data) => {
-        setText(data["transcriptionText"]["txt"]);
-        console.log(data, "is data");
-      })
-      .catch((error) => {
-        console.error("Fetch error:", error);
-      });
+    const data = createFinalTranscription(formData);
+    console.log("data",data)
+    // fetch("http://34.204.18.90:5000/transcribe-video", {
+    //   method: "POST",
+    //   body: formData, // Use FormData object
+    //   // Note: Do not set Content-Type header manually with FormData
+    // })
+    //   .then((response) => {
+    //     console.log("response", response);
+    //     return response.json();
+    //   })
+    //   .then((data) => {
+    //     setText(data["transcriptionText"]["txt"]);
+    //     console.log(data, "is data");
+    //   })
+    //   .catch((error) => {
+    //     console.error("Fetch error:", error);
+    //   });
   };
-  
+
   return loading ? (
     <div className="loader"></div>
   ) : (
