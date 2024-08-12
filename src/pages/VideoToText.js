@@ -5,15 +5,12 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchToken } from "./api";
 import "./style.css";
-import { createFinalTranscription } from "../api/videototext";
 
 export default function VideoToText() {
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState("");
   const [file, setFile] = useState(null);
   const [fileURL, setFileURL] = useState("");
-  const [fileUserPath, setFileUserPath] = useState("");
-  const [fileUserName, setFileUserName] = useState("");
   const [text, setText] = useState();
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -47,31 +44,28 @@ export default function VideoToText() {
     console.log(event.target.files);
     setFile(event.target.files[0]);
   };
-  function escapeBackslashes(filePath) {
-    return filePath.replace(/\\/g, "\\\\");
-  }
+   
 
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append("videoFile", file);
-    const data = createFinalTranscription(formData);
-    console.log("data",data)
-    // fetch("http://34.204.18.90:5000/transcribe-video", {
-    //   method: "POST",
-    //   body: formData, // Use FormData object
-    //   // Note: Do not set Content-Type header manually with FormData
-    // })
-    //   .then((response) => {
-    //     console.log("response", response);
-    //     return response.json();
-    //   })
-    //   .then((data) => {
-    //     setText(data["transcriptionText"]["txt"]);
-    //     console.log(data, "is data");
-    //   })
-    //   .catch((error) => {
-    //     console.error("Fetch error:", error);
-    //   });
+    
+    fetch("https://api.krishnavivah.com/transcribe-video", {
+      method: "POST",
+      body: formData, // Use FormData object
+      // Note: Do not set Content-Type header manually with FormData
+    })
+      .then((response) => {
+        console.log("response", response);
+        return response.json();
+      })
+      .then((data) => {
+        setText(data["transcriptionText"]["txt"]);
+        console.log(data, "is data");
+      })
+      .catch((error) => {
+        console.error("Fetch error:", error);
+      });
   };
 
   return loading ? (
