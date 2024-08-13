@@ -20,13 +20,13 @@ export default function Footer() {
           </div>
           <div className="class_office w-1/3 mt-0 ml-16 mr-0 sm:ml-0 sm:mr-5">
             <h1 className="text-lg text-theme-red pt-4 pb-2">Office</h1>
-            <p className="text-md text-gray-400 font-light">anandmundhava1975@gmail.com</p>
-            <p className="text-md text-gray-400 font-light">Klaten, Central Java, Indonesia</p>
+            <p className="text-lg text-gray-400 font-light">anandmundhava1975@gmail.com</p>
+            <p className="text-lg text-gray-400 font-light">Klaten, Central Java, Indonesia</p>
           </div>
           <div className="class_social w-1/3 ml-16 sm:ml-0 mt-0">
             <h1 className="text-lg text-theme-red pt-4 pb-2">Social</h1>
             <Button 
-              href="https://www.instagram.com/racmathafidz/" 
+              href="" 
               type="link" 
               target="_blank" 
               className="flex text-lg text-gray-400 font-light hover:underline" 
@@ -35,7 +35,7 @@ export default function Footer() {
               Instagram
             </Button>
             <Button 
-              href="https://www.linkedin.com/in/racmat-hafidz-89982a156/" 
+              href="" 
               type="link" 
               target="_blank" 
               className="flex text-lg text-gray-400 font-light hover:underline" 
@@ -44,7 +44,7 @@ export default function Footer() {
               LinkedIn
             </Button>
             <Button 
-              href="https://github.com/racmathafidz" 
+              href="" 
               type="link" 
               target="_blank" 
               className="flex text-lg text-gray-400 font-light hover:underline" 
@@ -62,15 +62,15 @@ export default function Footer() {
             <p className="inline-block text-lg text-gray-400 font-light">
               Made with &#x2764; by&nbsp;
             </p>
-            <Button 
-              href="https://santcorporation.com/" 
+            <a
+              href="https://santcorporation.com" 
               type="link" 
               target="_blank" 
-              className="text-lg text-theme-red font-light" 
+              className="text-lg text-gray-400 font-light" 
               isExternal
             >
               Santsai Corporation Ltd. Pvt.
-            </Button>
+            </a>
           </div>
         </div>
       </div>
