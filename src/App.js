@@ -11,6 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 //comment
 import './assets/css/styles.css';
 import VideoToText from './pages/VideoToText';
+import VideoHighlightPage from './pages/VideoHighlightPage';
 function App() {
   return (
     <div className="App">
@@ -21,6 +22,7 @@ function App() {
       <Route exact path="/team" component={TeamPage} />
       <Route exact path="/discuss-project" component={DiscussProjectPage} />
       <Route exact path="/video-text" component={VideoToTextPage} />
+      <Route exact path="/video-highlight" component={VideoHighlightPage} />
       <Route path="" component={NotFoundPage} />
     </Switch>
     </div>
