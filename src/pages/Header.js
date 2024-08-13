@@ -101,6 +101,15 @@ export default function Header(props) {
               Video to text
             </Button>
           </li>
+          <li>
+            <Button
+              className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
+              type="link"
+              href="/video-highlight"
+            >
+              Video Hightlight
+            </Button>
+          </li>
         </ul>
       </Fade>
 

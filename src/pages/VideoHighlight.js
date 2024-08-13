@@ -6,13 +6,16 @@ import "react-toastify/dist/ReactToastify.css";
 import { fetchToken } from "./api";
 import "./style.css";
 
-export default function VideoToText() {
+export default function VideoHighlight() {
   const [loading, setLoading] = useState(true);
   const [authToken, setAuthToken] = useState("");
   const [file, setFile] = useState(null);
   const [fileURL, setFileURL] = useState("");
   const [text, setText] = useState();
   const [errorMessage, setErrorMessage] = useState("");
+  const [loadingMessage, setLoadingMessage] = useState("");
+
+  const [url, setUrl] = useState("");
 
   useEffect(() => {
     if (!authToken) {
@@ -44,13 +47,15 @@ export default function VideoToText() {
     console.log(event.target.files);
     setFile(event.target.files[0]);
   };
-   
 
   const handleSubmit = () => {
     const formData = new FormData();
     formData.append("videoFile", file);
-    
-    fetch("https://api.krishnavivah.com/transcribe-video", {
+    setLoadingMessage(
+      "Video summary takes a long time please wait a while until we process it"
+    );
+
+    fetch("https://api.krishnavivah.com/hl-video", {
       method: "POST",
       body: formData, // Use FormData object
       // Note: Do not set Content-Type header manually with FormData
@@ -60,8 +65,14 @@ export default function VideoToText() {
         return response.json();
       })
       .then((data) => {
-        setText(data["transcriptionText"]["txt"]);
-        console.log(data, "is data");
+        // setText(data["transcriptionText"]["txt"]);
+        // console.log(data, "is data");
+        setUrl(data["transcriptionText"]);
+        setTimeout(() => {
+          console.log(url, "Is url");
+          window.location.href = url;
+          setLoadingMessage("Video Downloaded");
+        }, 1000);
       })
       .catch((error) => {
         console.error("Fetch error:", error);
@@ -74,6 +85,8 @@ export default function VideoToText() {
     <div>
       <section className="flex flex-col container mx-auto mt-10 justify-center">
         {text && <div className="text-display">{text}</div>}
+        {loadingMessage && <div className="text-display">{loadingMessage}</div>}
+
         {errorMessage && (
           <div className="text-display-error">{errorMessage}</div>
         )}
