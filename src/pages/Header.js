@@ -1,7 +1,8 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
+import { Fragment } from 'react';
 
 import Fade from 'react-reveal/Fade';
 import { Transition } from '@headlessui/react';
@@ -52,9 +53,8 @@ export default function Header(props) {
         <ul className="hidden text-theme-red tracking-widest items-center lg:flex flex-row mt-0">
           <li>
             <Button
-              className={`${
-                path === "/" ? "active-link" : ""
-              } text-lg px-5 no-underline hover:underline`}
+              className={`${path === "/" ? "active-link" : ""
+                } text-lg px-5 no-underline hover:underline`}
               type="link"
               href=""
             >
@@ -63,9 +63,8 @@ export default function Header(props) {
           </li>
           <li className="py-2 lg:py-0">
             <Button
-              className={`${
-                path === "/team" ? "active-link" : ""
-              } text-lg px-5 no-underline hover:underline`}
+              className={`${path === "/team" ? "active-link" : ""
+                } text-lg px-5 no-underline hover:underline`}
               type="link"
               href="/team"
             >
@@ -74,9 +73,8 @@ export default function Header(props) {
           </li>
           <li className="py-2 lg:py-0">
             <Button
-              className={`${
-                path === "/project" ? "active-link" : ""
-              } text-lg px-5 no-underline hover:underline`}
+              className={`${path === "/project" ? "active-link" : ""
+                } text-lg px-5 no-underline hover:underline`}
               type="link"
               href="/project"
             >
@@ -85,7 +83,7 @@ export default function Header(props) {
           </li>
           <li>
             <Button
-              className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
+              className="button_hd w-full md:w-auto px-4 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
               type="link"
               href="/discuss-project"
             >
@@ -93,17 +91,17 @@ export default function Header(props) {
             </Button>
           </li>
           <li>
-            <Button
-              className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
+            <button
+              className="button_hd w-full md:w-auto px-4 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
               type="link"
               href="/video-text"
             >
               Video to text
-            </Button>
+            </button>
           </li>
           <li>
             <Button
-              className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
+              className="button_hd w-full md:w-auto px-4 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
               type="link"
               href="/video-highlight"
             >
@@ -115,6 +113,7 @@ export default function Header(props) {
 
       <Transition
         show={isCollapse}
+        as={Fragment}
         enter="transition-opacity duration-400"
         enterFrom="opacity-0"
         enterTo="opacity-100"
@@ -122,13 +121,12 @@ export default function Header(props) {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Fade>
+        <div>
           <ul className="z-50 flex flex-col text-theme-red tracking-widest my-6 absolute bg-white w-full border-b-2 border-gray-300 lg:hidden">
             <li className="py-2 bg-white">
               <Button
-                className={`${
-                  path === "/" ? "active-link" : ""
-                } px-10 no-underline hover:underline`}
+                className={`${path === "/" ? "active-link" : ""
+                  } px-10 no-underline hover:underline`}
                 type="link"
                 href="/"
               >
@@ -137,9 +135,8 @@ export default function Header(props) {
             </li>
             <li className="py-2 bg-white">
               <Button
-                className={`${
-                  path === "/team" ? "active-link" : ""
-                } px-10 no-underline hover:underline`}
+                className={`${path === "/team" ? "active-link" : ""
+                  } px-10 no-underline hover:underline`}
                 type="link"
                 href="/team"
               >
@@ -148,9 +145,8 @@ export default function Header(props) {
             </li>
             <li className="py-2 bg-white">
               <Button
-                className={`${
-                  path === "/project" ? "active-link" : ""
-                } px-10 no-underline hover:underline`}
+                className={`${path === "/project" ? "active-link" : ""
+                  } px-10 no-underline hover:underline`}
                 type="link"
                 href="/project"
               >
@@ -159,15 +155,33 @@ export default function Header(props) {
             </li>
             <li className="mx-auto my-9 bg-white">
               <Button
-                className="mx-auto px-5 py-2 bg-theme-red text-white rounded-full border-2 border-theme-red hover:bg-dark-theme-red border-red-800 transition duration-200"
+                className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
                 type="link"
                 href="/discuss-project"
               >
                 Text To Video
               </Button>
             </li>
+            <li className="mx-auto my-9 bg-white">
+              <Button
+                className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
+                type="link"
+                href="/video-text"
+              >
+                Video To Text
+              </Button>
+            </li>
+            <li className="mx-auto my-9 bg-white">
+              <Button
+                className="text-lg mx-auto ml-3 px-6 py-2 bg-theme-yellow text-white rounded-full border-2 border-theme-yellow hover:bg-dark-theme-yellow border-yellow-800 transition duration-200"
+                type="link"
+                href="/video-highlight"
+              >
+                Video Hightlights
+              </Button>
+            </li>
           </ul>
-        </Fade>
+        </div>
       </Transition>
     </header>
   );

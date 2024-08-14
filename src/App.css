@@ -409,3 +409,7 @@ select>option {
   margin-left: 70px;
   margin-right: 70px;
 }
+
+.button_hd{
+  margin-right: 5px
+}
