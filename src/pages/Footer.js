@@ -3,61 +3,64 @@ import React from 'react';
 
 import BrandIcon from './BrandIcon';
 import Button from './elements/Button';
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
 
-export default function Footer() {
+const Footer = () => {
   return (
-    <div className="bg-black border-t border-black-200 pb-6">
-      <div className="container flex-col mx-auto">
-        <div className="flex flex-col sm:flex-row mt-8 justify-center">
-          <div className="w-1/3 flex-col ml-16 mr-8">
-            <BrandIcon />
-            <p className="w-full text-lg text-gray-400 font-light">
-              Growing Your Business
-              {' '}
-              <br />
-              Is Our Calling
-            </p>
+    <footer className="bg-black text-yellow-500 py-8">
+      <div className="container mx-auto px-4">
+        <div className="class_office flex flex-col md:flex-row justify-between">
+          {/* Contact Information */}
+          <div className="class_office mb-8 md:mb-0">
+            <h1 className="text-2xl font-bold mb-4 text-gray-400 ">360Gift</h1>
+            <p className="mb-2">Klaten, Central Java, Indonesia</p>
+            <p className="mb-2">Email: anandmundhava1975@gmail.com</p>
+            <p>Phone: +123 456 7890</p>
           </div>
-          <div className="class_office w-1/3 mt-0 ml-16 mr-0 sm:ml-0 sm:mr-5">
-            <h1 className="text-lg text-theme-red pt-4 pb-2">Office</h1>
-            <p className="text-lg text-gray-400 font-light">anandmundhava1975@gmail.com</p>
-            <p className="text-lg text-gray-400 font-light">Klaten, Central Java, Indonesia</p>
+
+          {/* Social Media Links */}
+          <div className=" class_office mb-8 md:mb-0">
+            <h2 className="text-xl font-semibold mb-4 text-lg text-gray-400 font-light">Follow Us</h2>
+            <div className="flex space-x-4">
+              <a href="#" className="hover:text-yellow-300">
+                <FaFacebook size={24} />
+              </a>
+              <a href="#" className="hover:text-yellow-300">
+                <FaTwitter size={24} />
+              </a>
+              <a href="#" className="hover:text-yellow-300">
+                <FaInstagram size={24} />
+              </a>
+              <a href="#" className="hover:text-yellow-300">
+                <FaLinkedin size={24} />
+              </a>
+            </div>
           </div>
-          <div className="class_social w-1/3 ml-16 sm:ml-0 mt-0">
-            <h1 className="text-lg text-theme-red pt-4 pb-2">Social</h1>
-            <Button 
-              href="" 
-              type="link" 
-              target="_blank" 
-              className="flex text-lg text-gray-400 font-light hover:underline" 
-              isExternal
-            >
-              Instagram
-            </Button>
-            <Button 
-              href="" 
-              type="link" 
-              target="_blank" 
-              className="flex text-lg text-gray-400 font-light hover:underline" 
-              isExternal
-            >
-              LinkedIn
-            </Button>
-            <Button 
-              href="" 
-              type="link" 
-              target="_blank" 
-              className="flex text-lg text-gray-400 font-light hover:underline" 
-              isExternal
-            >
-              Github
-            </Button>
+
+          {/* Additional Links */}
+          <div className='class_office'>
+            <h2 className="text-xl font-semibold mb-4 text-lg text-gray-400 font-light">Quick Links</h2>
+            <ul>
+              <li className="mb-2">
+                <a href="#" className="hover:text-yellow-300">About Us</a>
+              </li>
+              <li className="mb-2">
+                <a href="#" className="hover:text-yellow-300">Contact</a>
+              </li>
+              <li className="mb-2">
+                <a href="#" className="hover:text-yellow-300">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-yellow-300">Terms of Service</a>
+              </li>
+            </ul>
           </div>
         </div>
-        <div className="flex-col text-center mt-7">
-          <p className="text-lg text-gray-400 font-light">
-            Copyright 2024 - All rights reserved - 360 Gifts
-          </p>
+      </div>
+      {/* Copyright Information */}
+      <div className="mt-8 text-center">
+        <p>©2024 360Gift. All rights reserved.</p>
+      </div>
           <div className="flex-row">
             <p className="inline-block text-lg text-gray-400 font-light">
               Made with &#x2764; by&nbsp;
@@ -72,8 +75,8 @@ export default function Footer() {
               Santsai Corporation Ltd. Pvt.
             </a>
           </div>
-        </div>
-      </div>
-    </div>
+    </footer>
   );
-}
+};
+
+export default Footer;
